@@ -3,6 +3,7 @@ package com.example.eirikuratli.lyfjabox.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,6 +59,21 @@ public class RegisterActivity extends AppCompatActivity {
                     mPassword.setError("Passwords do not match");
                 }
 
+                if (TextUtils.isEmpty(firstName)) {
+                    mFirstName.setError("First name cannot be empty");
+                }
+
+                if (TextUtils.isEmpty(lastName)) {
+                    mLastName.setError("Last name cannot be empty");
+                }
+
+                if (TextUtils.isEmpty(socialNr)) {
+                    mSocial.setError("Social security number cannot be empty");
+                }
+
+                if (TextUtils.isEmpty(userName)) {
+                    mUsername.setError("Email is not valid");
+                }
             }
         });
     }
