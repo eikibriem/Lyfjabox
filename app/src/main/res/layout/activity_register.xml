@@ -3,12 +3,12 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fillViewport="true">
 
     <TableLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
         <TableRow>
@@ -22,10 +22,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Name"
+                android:hint="First name"
                 android:ems="10"
                 android:id="@+id/first_name_input"
                 android:layout_weight="1"/>
+
         </TableRow>
 
         <TableRow>
@@ -39,15 +40,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Name"
+                android:hint="Last name"
                 android:ems="10"
-                android:id="@+id/last_name_inpput"
+                android:id="@+id/last_name_input"
                 android:layout_weight="0.14"/>
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Social sequrity nr."
+                android:text="Social security nr."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ssn_label"
@@ -58,7 +59,8 @@
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/ssn_input"
-                android:layout_weight="2.74"/>
+                android:layout_weight="1"
+                android:hint="Social security number"/>
         </TableRow>
 
         <TableRow>
@@ -72,28 +74,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
-                android:text="Address"
+                android:hint="Address"
                 android:ems="10"
                 android:id="@+id/address_input"
                 android:layout_weight="1"/>
         </TableRow>
 
-        <TableRow>
-            <TextView
-                android:text="City"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/city_label"
-                android:layout_weight="1.29"/>
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPostalAddress"
-                android:ems="10"
-                android:id="@+id/city_input"
-                android:layout_weight="0.77"
-                android:text="City"/>
-        </TableRow>
 
         <TableRow>
             <TextView
@@ -102,14 +88,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/postal_label"
                 android:layout_weight="1"/>
-            <EditText
+
+            <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
+                android:layout_height="35dp"
                 android:id="@+id/zip_input"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/zip_list"
                 android:layout_weight="1"
-                android:text="Zip"/>
+                />
+
         </TableRow>
 
         <TableRow>
@@ -122,11 +110,11 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
+                android:inputType="phone"
+                android:ems="7"
                 android:id="@+id/phone_input"
                 android:layout_weight="1"
-                android:text="Phone number"/>
+                android:hint="Phone number"/>
         </TableRow>
 
         <TableRow>
@@ -143,7 +131,7 @@
                 android:ems="10"
                 android:id="@+id/email_input"
                 android:layout_weight="1"
-                android:text="Email"/>
+                android:hint="Email"/>
         </TableRow>
 
         <TableRow>
@@ -160,21 +148,41 @@
                 android:ems="10"
                 android:id="@+id/password_input"
                 android:layout_weight="1"
-                android:text="Password"/>
+                android:hint="Password"/>
         </TableRow>
 
-        <TableRow android:paddingTop="10dp">
+        <TableRow>
+            <TextView
+                android:text="Repeat password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/password_repeat_label"
+                android:layout_weight="1"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/password_repeat_input"
+                android:layout_weight="1"
+                android:hint="Repeat password"/>
+        </TableRow>
+
+        <TableRow android:paddingTop="20dp">
 
             <Button
                 android:id="@+id/cancel_button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Cancel" />
 
             <Button
                 android:id="@+id/sign_up_button"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Sign up" />
 
         </TableRow>
