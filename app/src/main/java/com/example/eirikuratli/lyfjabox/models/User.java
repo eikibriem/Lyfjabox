@@ -1,4 +1,4 @@
-package com.example.eirkuratli.lyfjabox;
+package com.example.eirikuratli.lyfjabox.models;
 
 
 //import java.util.List;
@@ -29,8 +29,9 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, int social, String address, String city, int zip, int phoneNo,
+    public User(long id, String firstName, String lastName, int social, String address, String city, int zip, int phoneNo,
                     String email, String username, String password, int accountType, int loginCounter, String[] userDrugs) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.social = social;
@@ -141,6 +142,10 @@ public class User {
     public int getLoginCounter() { return loginCounter; }
 
     public void setLoginCounter(int loginCounter) { this.loginCounter = loginCounter; }
+
+    public Long getId() {return id; }
+
+    public void setId(Long id) {this.id = id; }
 
 /*
     @OneToMany(mappedBy = "userDrug", cascade = CascadeType.ALL)

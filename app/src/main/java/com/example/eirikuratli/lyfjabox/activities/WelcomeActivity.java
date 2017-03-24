@@ -3,6 +3,9 @@ package com.example.eirikuratli.lyfjabox.activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -20,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,10 +33,14 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.eirkuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.models.User;
+import com.example.eirkuratli.lyfjabox.MySQLiteHelper;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +51,9 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class WelcomeActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
+    //UserService userService;
+    private User myUser;
+
     /**
      * Id to identity READ_CONTACTS permission request.
      */
@@ -52,9 +63,10 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
+    /*private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world", "eirikuratli@gmail.com:hahaha"
     };
+    */
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -198,7 +210,7 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+            mAuthTask = new UserLoginTask(email, password, this);
             mAuthTask.execute((Void) null);
         }
     }
@@ -311,33 +323,41 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
 
         private final String mEmail;
         private final String mPassword;
+        private final Context mContext;
 
-        UserLoginTask(String email, String password) {
+        UserLoginTask(String email, String password, Context context) {
             mEmail = email;
             mPassword = password;
+            mContext = context;
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
+            MySQLiteHelper db=null;
+            try{
+                db = new MySQLiteHelper(mContext);
+                myUser = db.getUser(mEmail);
+
+                if (myUser.getId()>0) {
+                    // Account exists, check password.
+                    if (myUser.getPassword().equals(mPassword))
+                        return true;
+                    else
+                        return false;
+                } else {
+                    myUser.setPassword(mPassword);
+                    return true;
                 }
+            } finally{
+                if (db!=null)
+                    db.close();
             }
 
             // TODO: register the new account here.
-            return true;
+            //return false;
         }
 
         @Override
@@ -346,11 +366,57 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
             showProgress(false);
 
             if (success) {
-                finish();
+                if (myUser.getId()>0){
+                    finish();
+                    Intent myIntent = new Intent(WelcomeActivity.this,HomeActivity.class);
+                    WelcomeActivity.this.startActivity(myIntent);
+                } else {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    MySQLiteHelper db=null;
+                                    try{
+                                        finish();
+                                        db = new MySQLiteHelper(mContext);
+                                        myUser=db.insertUser(myUser);
+                                        Toast myToast = Toast.makeText(mContext,R.string.updatingReport, Toast.LENGTH_SHORT);
+                                        myToast.show();
+                                        Intent myIntent = new Intent(WelcomeActivity.this,HomeActivity.class);
+                                        WelcomeActivity.this.startActivity(myIntent);
+                                    } finally{
+                                        if (db!=null)
+                                            db.close();
+                                    }
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    mPasswordView.setError(getString(R.string.error_incorrect_password));
+                                    mPasswordView.requestFocus();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this.mContext);
+                    builder.setMessage(R.string.confirm_registry).setPositiveButton(R.string.yes, dialogClickListener)
+                            .setNegativeButton(R.string.no, dialogClickListener).show();
+                }
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }
+
+
+            /*    finish();Intent myIntent = new Intent(WelcomeActivity.this, HomeActivity.class);
+                WelcomeActivity.this.startActivity(myIntent);
+            }
+            else {
+                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                mPasswordView.requestFocus();
+            }
+            */
         }
 
         @Override

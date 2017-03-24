@@ -6,6 +6,7 @@ import android.util.Log;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Properties;
 
 /**
  * Created by EiríkurAtli on 21.3.2017.
@@ -33,9 +34,9 @@ public class ConnectionClass {
 */
     @SuppressLint("NewApi")
     public Connection CONN() {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                .permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        //StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+        //        .permitAll().build();
+        //StrictMode.setThreadPolicy(policy);
         Connection conn = null;
         String ConnURL = null;
         try {
@@ -43,9 +44,15 @@ public class ConnectionClass {
             Class.forName(classs);
 
             ConnURL = "jdbc:postgresql://localhost:5432/HBV";
+            Properties props = new Properties();
+            props.setProperty("user","postgres");
+            props.setProperty("password","nufc");
+            props.setProperty("ssl","true");
+            conn = DriverManager.getConnection(ConnURL, props);
+            Log.d("MyTag", "Connection successful!!!!!!!!!");
 
             //ConnURL = "jdbc:postgresql://" + hostName + ":" + port + "/" + db;
-            conn = DriverManager.getConnection(ConnURL, un, password);
+            //conn = DriverManager.getConnection(ConnURL, un, password);
         } catch (SQLException se) {
             Log.e("ERRO", se.getMessage());
         } catch (ClassNotFoundException e) {

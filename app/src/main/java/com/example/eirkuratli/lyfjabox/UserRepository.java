@@ -1,16 +1,8 @@
 package com.example.eirkuratli.lyfjabox;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.Toast;
+
+import com.example.eirikuratli.lyfjabox.models.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -25,7 +17,7 @@ import java.sql.Statement;
 
 public class UserRepository {
 
-    ConnectionClass connectionClass;
+    private ConnectionClass connectionClass;
     //database : SQLiteDatabase;
     //dbHelper : MySQLiteHelper;
 
