@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.eirkuratli.lyfjabox.com.example.eirikuratli.lyfjabox.activities.WelcomeActivity">
+    tools:context="com.example.eirikuratli.lyfjabox.activities.WelcomeActivity">
 
     <ImageView
         android:layout_width="match_parent"

@@ -53,6 +53,10 @@ public class RegisterActivity extends AppCompatActivity {
                 String zipCode = mZipSpinner.getSelectedItem().toString();
                 String userName = mUsername.getText().toString();
 
+                if ((TextUtils.isEmpty(mPassword.getText().toString())) || (TextUtils.isEmpty(mConfirmedPassword.getText().toString())))  {
+                    mPassword.setError("Password cannot be empty");
+                }
+
                 if (mPassword.getText().toString().equals(mConfirmedPassword.getText().toString())) {
                     String password = mPassword.getText().toString();
                 } else {

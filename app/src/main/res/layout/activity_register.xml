@@ -56,7 +56,7 @@
 
         <TableRow>
             <TextView
-                android:text="Social security nr."
+                android:text="SSN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ssn_label"
