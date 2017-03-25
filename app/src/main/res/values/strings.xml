@@ -149,5 +149,6 @@
         <item>880 Kirkjubæjarklaustur</item>
         <item>900 Vestmannaeyjar</item>
     </string-array>
+    <string name="title_activity_map">Map</string>
 
 </resources>
