@@ -15,7 +15,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mFirstName, mLastName, mSocial, mAddress, mUsername, mPassword, mConfirmedPassword;
     private Spinner mZipSpinner;
     private Button mRegister;
-
+//TODO: Connect class to user service class so the information can be used to create users
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

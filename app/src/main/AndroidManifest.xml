@@ -22,8 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.eirikuratli.lyfjabox.activities.RegisterActivity"></activity>
-        <activity android:name="com.example.eirikuratli.lyfjabox.activities.HomeActivity"></activity>
+        <activity android:name="com.example.eirikuratli.lyfjabox.activities.RegisterActivity" />
+        <activity android:name="com.example.eirikuratli.lyfjabox.activities.HomeActivity" />
+        <activity android:name="com.example.eirikuratli.lyfjabox.activities.SearchActivity"></activity>
     </application>
 
 </manifest>

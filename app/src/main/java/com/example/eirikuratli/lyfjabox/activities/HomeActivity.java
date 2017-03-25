@@ -8,6 +8,7 @@ import com.example.eirkuratli.lyfjabox.R;
 
 public class HomeActivity extends AppCompatActivity {
 
+    //TODO: Create methods for buttons, link them to other activites
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
