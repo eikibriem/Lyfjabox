@@ -41,7 +41,7 @@ public class ConnectionClass {
         String ConnURL = null;
         try {
 
-            Class.forName(classs);
+            Class.forName("org.postgresql.Driver");
 
             ConnURL = "jdbc:postgresql://localhost:5432/HBV";
             Properties props = new Properties();
@@ -51,8 +51,6 @@ public class ConnectionClass {
             conn = DriverManager.getConnection(ConnURL, props);
             Log.d("MyTag", "Connection successful!!!!!!!!!");
 
-            //ConnURL = "jdbc:postgresql://" + hostName + ":" + port + "/" + db;
-            //conn = DriverManager.getConnection(ConnURL, un, password);
         } catch (SQLException se) {
             Log.e("ERRO", se.getMessage());
         } catch (ClassNotFoundException e) {
