@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.eirkuratli.lyfjabox.R;
 
 public class HomeActivity extends AppCompatActivity {
+    //The main activity in the app after logging in, does not do anything besides linking to other
+    //activities and display a user greeting.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

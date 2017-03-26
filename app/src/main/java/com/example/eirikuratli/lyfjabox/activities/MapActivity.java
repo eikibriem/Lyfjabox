@@ -16,6 +16,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    //Will display pharmacies on a map along with user location, if a marker is clicked it will open a information window
+    //where some information about the selected pharmacy will be available
+
     private GoogleMap mMap;
 
     @Override

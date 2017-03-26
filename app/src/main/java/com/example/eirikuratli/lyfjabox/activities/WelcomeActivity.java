@@ -50,6 +50,7 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class WelcomeActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+//Opening screen where users log in, the app cannot be used without creating a user account.
 
     //UserService userService;
     private User myUser;
