@@ -6,12 +6,15 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -26,8 +29,18 @@
 
         </activity>
         <activity android:name="com.example.eirikuratli.lyfjabox.activities.RegisterActivity" />
-        <activity android:name="com.example.eirikuratli.lyfjabox.activities.HomeActivity" />
-        <activity android:name="com.example.eirikuratli.lyfjabox.activities.SearchActivity" />
+        <activity android:name="com.example.eirikuratli.lyfjabox.activities.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.eirikuratli.lyfjabox.activities.SearchActivity">
+
+        </activity>
+
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,13 +55,7 @@
 
         <activity
             android:name="com.example.eirikuratli.lyfjabox.activities.MapActivity"
-            android:label="@string/title_activity_map">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="@string/title_activity_map"></activity>
         <activity android:name="com.example.eirikuratli.lyfjabox.activities.MedicineOverviewActivity" />
         <activity android:name="com.example.eirikuratli.lyfjabox.activities.RegisterMedicineActivity" />
         <activity android:name="com.example.eirikuratli.lyfjabox.activities.MedicineInfoActivity"></activity>

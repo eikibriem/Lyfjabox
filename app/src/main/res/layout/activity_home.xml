@@ -46,14 +46,16 @@
             <TableRow>
 
                 <Button
+                    android:id="@+id/search_meds_button"
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Find medicine" />
 
                 <Button
+                    android:id="@+id/search_pharmacy_button"
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Find pharmacies" />
             </TableRow>
@@ -61,14 +63,16 @@
             <TableRow>
 
                 <Button
+                    android:id="@+id/user_information_button"
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="User information" />
 
                 <Button
+                    android:id="@+id/registered_meds_button"
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Registered medicine" />
             </TableRow>
