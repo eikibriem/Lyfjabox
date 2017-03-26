@@ -14,9 +14,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:text="Fill in the form to sign up"/>
+            android:text="Fill in the form to sign up"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
 
         <TableRow>
@@ -25,7 +24,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/first_name_label"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +43,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/last_name_label"
-                android:layout_weight="0.14"/>
+                android:layout_weight="0.14"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ssn_label"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +79,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/address_label"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,7 +98,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/postal_label"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
             <Spinner
                 android:layout_width="wrap_content"
@@ -114,7 +118,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/phone_label"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,7 +136,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/email_label"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -148,7 +154,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/password_label"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,7 +172,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/password_repeat_label"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -198,3 +206,4 @@
     </TableLayout>
 
 </ScrollView>
+

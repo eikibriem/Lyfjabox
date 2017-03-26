@@ -27,11 +27,11 @@
                 <TextView
                     android:id="@+id/greeting_user"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/greeting_home"
-                    android:textSize="17dp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
             </TableRow>
 

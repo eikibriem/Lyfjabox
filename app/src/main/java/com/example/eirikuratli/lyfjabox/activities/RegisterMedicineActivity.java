@@ -3,6 +3,8 @@ package com.example.eirikuratli.lyfjabox.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.eirkuratli.lyfjabox.R;
+
 public class RegisterMedicineActivity extends AppCompatActivity {
 
     @Override

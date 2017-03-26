@@ -17,6 +17,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="updatingReport">Updating.....</string>
+    <string name="overview_text">Here you can view and edit all of your registered medication</string>
 
     <string name="greeting_home">Welcome %1$s! Today is: </string>
 
