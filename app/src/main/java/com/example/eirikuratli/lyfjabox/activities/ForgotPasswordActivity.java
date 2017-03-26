@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.example.eirkuratli.lyfjabox.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
-
+//Activity missing from class diagram, obvious what it does
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
