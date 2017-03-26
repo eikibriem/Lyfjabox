@@ -1,8 +1,9 @@
-package com.example.eirkuratli.lyfjabox;
+package com.example.eirikuratli.lyfjabox.models;
 
 import android.util.Log;
 
 import com.example.eirikuratli.lyfjabox.models.User;
+import com.example.eirikuratli.lyfjabox.models.UserRepository;
 
 import java.sql.SQLException;
 

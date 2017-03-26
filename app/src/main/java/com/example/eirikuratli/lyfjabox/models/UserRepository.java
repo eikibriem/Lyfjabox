@@ -1,7 +1,8 @@
-package com.example.eirkuratli.lyfjabox;
+package com.example.eirikuratli.lyfjabox.models;
 
 import android.util.Log;
 
+import com.example.eirikuratli.lyfjabox.models.ConnectionClass;
 import com.example.eirikuratli.lyfjabox.models.User;
 
 import java.sql.Connection;

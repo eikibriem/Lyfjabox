@@ -23,7 +23,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,9 +37,8 @@ import android.widget.Toast;
 
 import com.example.eirkuratli.lyfjabox.R;
 import com.example.eirikuratli.lyfjabox.models.User;
-import com.example.eirkuratli.lyfjabox.MySQLiteHelper;
+import com.example.eirikuratli.lyfjabox.models.MySQLiteHelper;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

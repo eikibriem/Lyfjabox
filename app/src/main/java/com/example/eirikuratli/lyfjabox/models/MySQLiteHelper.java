@@ -1,13 +1,9 @@
-package com.example.eirkuratli.lyfjabox;
+package com.example.eirikuratli.lyfjabox.models;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.eirikuratli.lyfjabox.models.User;
-import com.example.eirkuratli.lyfjabox.ConnectionClass;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

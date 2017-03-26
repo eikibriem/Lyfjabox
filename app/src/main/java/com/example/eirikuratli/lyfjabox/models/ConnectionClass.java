@@ -1,4 +1,4 @@
-package com.example.eirkuratli.lyfjabox;
+package com.example.eirikuratli.lyfjabox.models;
 
 import android.annotation.SuppressLint;
 import android.os.StrictMode;
