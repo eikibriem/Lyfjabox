@@ -3,7 +3,8 @@ package com.example.eirikuratli.lyfjabox.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.eirkuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.R;
+
 
 public class MedicineOverviewActivity extends AppCompatActivity {
 //Activity for viewing all registered medication along with the option of editing the registration (example: turn notifications on or off).

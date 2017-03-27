@@ -35,7 +35,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.eirkuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.R;
 import com.example.eirikuratli.lyfjabox.models.User;
 import com.example.eirikuratli.lyfjabox.models.MySQLiteHelper;
 

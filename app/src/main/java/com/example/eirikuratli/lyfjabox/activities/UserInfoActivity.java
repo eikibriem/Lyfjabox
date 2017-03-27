@@ -8,8 +8,8 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-//import com.example.eirikuratli.lyfjabox.User;
-import com.example.eirkuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.R;
+
 
 public class UserInfoActivity extends AppCompatActivity {
 
@@ -28,12 +28,6 @@ public class UserInfoActivity extends AppCompatActivity {
             }
         });
 
-
-
-        String name = getIntent().getStringExtra("firstName");
-        TextView greetingText = (TextView) findViewById(R.id.greeting_user);
-        String format = getString(R.string.greeting_home);
-        greetingText.setText(String.format(format, name));
     }
 
 

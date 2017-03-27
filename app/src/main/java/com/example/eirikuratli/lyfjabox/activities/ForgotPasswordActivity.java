@@ -1,9 +1,10 @@
 package com.example.eirikuratli.lyfjabox.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.example.eirkuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.R;
+
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 //Activity missing from class diagram, obvious what it does

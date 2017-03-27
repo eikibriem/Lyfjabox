@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.eirkuratli.lyfjabox">
+    package="com.example.eirikuratli.lyfjabox">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -58,6 +58,7 @@
             android:label="@string/title_activity_map"></activity>
         <activity android:name="com.example.eirikuratli.lyfjabox.activities.MedicineOverviewActivity" />
         <activity android:name="com.example.eirikuratli.lyfjabox.activities.RegisterMedicineActivity" />
+        <activity android:name=".activities.UserInfoActivity" />
         <activity android:name="com.example.eirikuratli.lyfjabox.activities.MedicineInfoActivity"></activity>
     </application>
 

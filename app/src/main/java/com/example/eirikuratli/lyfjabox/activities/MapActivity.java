@@ -3,7 +3,7 @@ package com.example.eirikuratli.lyfjabox.activities;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-import com.example.eirkuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.R;
 import com.google.android.gms.instantapps.LaunchData;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

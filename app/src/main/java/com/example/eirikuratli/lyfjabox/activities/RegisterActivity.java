@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.eirkuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.R;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText mFirstName, mLastName, mSocial, mAddress, mUsername, mPassword, mConfirmedPassword;

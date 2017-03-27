@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.eirkuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.R;
+
 
 public class HomeActivity extends AppCompatActivity {
     //The main activity in the app after logging in, does not do anything besides linking to other
