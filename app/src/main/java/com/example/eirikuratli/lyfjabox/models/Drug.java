@@ -12,7 +12,7 @@ public class Drug {
     private int frequency;
     private Date date;
     private String name;
-    private int activeIngr;
+    private String activeIngr;
     private boolean reminder;
     // HH:MM:SS
     private String reminderTime;
@@ -57,11 +57,11 @@ public class Drug {
         this.name = name;
     }
 
-    public int getActiveIngr() {
+    public String getActiveIngr() {
         return activeIngr;
     }
 
-    public void setActiveIngr(int activeIngr) {
+    public void setActiveIngr(String activeIngr) {
         this.activeIngr = activeIngr;
     }
 

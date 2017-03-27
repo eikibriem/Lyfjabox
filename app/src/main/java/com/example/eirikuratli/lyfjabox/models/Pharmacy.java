@@ -10,8 +10,8 @@ public class Pharmacy {
     private String address;
     private String zip;
     private String phoneNo;
-    private int longitude;
-    private int latitude;
+    private double longitude;
+    private double latitude;
     private String opHours;
 
     public int getId() {
@@ -54,7 +54,7 @@ public class Pharmacy {
         this.phoneNo = phoneNo;
     }
 
-    public int getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
@@ -62,7 +62,7 @@ public class Pharmacy {
         this.longitude = longitude;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 

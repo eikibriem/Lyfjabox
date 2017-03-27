@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class UserService {
 
-    UserRepository repository;
+    UserRepository repository = new UserRepository();
 
     public User doLogin(String email, String password) throws SQLException {
         try {

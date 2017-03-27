@@ -5,4 +5,7 @@ package com.example.eirikuratli.lyfjabox.models;
  */
 
 public class PharmacyService {
+    PharmacyRepository repository = new PharmacyRepository();
+
+
 }
