@@ -154,5 +154,6 @@
         <item>900 Vestmannaeyjar</item>
     </string-array>
     <string name="title_activity_map">Map</string>
+    <string name="menu_title_search">Search</string>
 
 </resources>

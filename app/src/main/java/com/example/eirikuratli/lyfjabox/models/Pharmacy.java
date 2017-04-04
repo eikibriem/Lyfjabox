@@ -1,5 +1,7 @@
 package com.example.eirikuratli.lyfjabox.models;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by thorunn on 22/03/17.
  */
@@ -12,6 +14,7 @@ public class Pharmacy {
     private String phoneNo;
     private double longitude;
     private double latitude;
+    //private LatLng latLngPharmacy;
     private String opHours;
 
     public int getId() {

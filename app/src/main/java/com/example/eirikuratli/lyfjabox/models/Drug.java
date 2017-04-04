@@ -1,12 +1,14 @@
 package com.example.eirikuratli.lyfjabox.models;
 
+import android.support.annotation.NonNull;
+
 import java.util.Date;
 
 /**
  * Created by thorunn on 22/03/17.
  */
 
-public class Drug {
+public class Drug implements Comparable<Drug>{
     private int id;
     private double dose;
     private int frequency;
@@ -79,5 +81,10 @@ public class Drug {
 
     public void setReminderTime(String reminderTime) {
         this.reminderTime = reminderTime;
+    }
+
+    @Override
+    public int compareTo(@NonNull Drug o) {
+        return this.name.compareTo(o.name);
     }
 }
