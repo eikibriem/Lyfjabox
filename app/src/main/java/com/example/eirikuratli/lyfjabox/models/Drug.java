@@ -1,5 +1,7 @@
 package com.example.eirikuratli.lyfjabox.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
 import java.util.Date;
@@ -8,7 +10,7 @@ import java.util.Date;
  * Created by thorunn on 22/03/17.
  */
 
-public class Drug implements Comparable<Drug>{
+public class Drug implements Comparable<Drug>, Parcelable {
     private int id;
     private double dose;
     private int frequency;
@@ -18,6 +20,10 @@ public class Drug implements Comparable<Drug>{
     private boolean reminder;
     // HH:MM:SS
     private String reminderTime;
+
+    public Drug() {
+
+    }
 
     public int getId() {
         return id;
@@ -87,4 +93,42 @@ public class Drug implements Comparable<Drug>{
     public int compareTo(@NonNull Drug o) {
         return this.name.compareTo(o.name);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeDouble(dose);
+        dest.writeInt(frequency);
+        dest.writeString(name);
+        dest.writeString(activeIngr);
+        dest.writeByte((byte) (reminder ? 1 : 0));
+        dest.writeString(reminderTime);
+    }
+
+    protected Drug(Parcel in) {
+        id = in.readInt();
+        dose = in.readDouble();
+        frequency = in.readInt();
+        name = in.readString();
+        activeIngr = in.readString();
+        reminder = in.readByte() != 0;
+        reminderTime = in.readString();
+    }
+
+    public static final Creator<Drug> CREATOR = new Creator<Drug>() {
+        @Override
+        public Drug createFromParcel(Parcel in) {
+            return new Drug(in);
+        }
+
+        @Override
+        public Drug[] newArray(int size) {
+            return new Drug[size];
+        }
+    };
 }

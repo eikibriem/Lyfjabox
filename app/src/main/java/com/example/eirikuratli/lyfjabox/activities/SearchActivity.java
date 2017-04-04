@@ -49,10 +49,10 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         mRecyclerView.setAdapter(sAdapter);
     }
 
-    private List<Drug> filterList(List<Drug> drugs, String name){
+    private List<Drug> filterList(List<Drug> drugs, String name) {
         ArrayList<Drug> filteredDrugs = new ArrayList<>();
         for (Drug drug : drugs) {
-            if(drug.getName().toLowerCase().contains(name.toLowerCase())) {
+            if (drug.getName().toLowerCase().contains(name.toLowerCase())) {
                 filteredDrugs.add(drug);
             }
         }
@@ -126,7 +126,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     private static class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
         private List<Drug> drugList;
-        private Drug drug;
 
         public SearchAdapter(List<Drug> drugs) {
             drugList = drugs;
@@ -179,8 +178,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         public void setDrug(Drug currentDrug) {
             drugNameText.setText(currentDrug.getName());
         }
-
     }
-
 }
 
