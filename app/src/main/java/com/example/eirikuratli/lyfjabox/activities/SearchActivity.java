@@ -1,5 +1,8 @@
 package com.example.eirikuratli.lyfjabox.activities;
 
+import android.content.Context;
+import android.content.Intent;
+import android.nfc.Tag;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -122,6 +126,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     private static class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
         private List<Drug> drugList;
+        private Drug drug;
 
         public SearchAdapter(List<Drug> drugs) {
             drugList = drugs;
@@ -136,13 +141,21 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         public SearchViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.search_item, parent, false);
-            return new SearchViewHolder(linearLayout);
+            return new SearchViewHolder(linearLayout, parent.getContext());
         }
 
         @Override
-        public void onBindViewHolder(SearchViewHolder holder, int position) {
-            Drug currentDrug = drugList.get(position);
+        public void onBindViewHolder(SearchViewHolder holder, final int position) {
+            final Drug currentDrug = drugList.get(position);
             holder.setDrug(currentDrug);
+
+            holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), MedicineInfoActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+            });
         }
 
         @Override
@@ -153,17 +166,20 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     private static class SearchViewHolder extends RecyclerView.ViewHolder {
         public LinearLayout linearLayout;
-        private TextView drugNameText;
+        public TextView drugNameText;
+        private Context context;
 
-        public SearchViewHolder(LinearLayout linearLayout) {
+        public SearchViewHolder(LinearLayout linearLayout, Context context) {
             super(linearLayout);
             this.linearLayout = linearLayout;
             drugNameText = (TextView) linearLayout.findViewById(R.id.drug_name);
+            this.context = context;
         }
 
         public void setDrug(Drug currentDrug) {
             drugNameText.setText(currentDrug.getName());
         }
+
     }
 
 }
