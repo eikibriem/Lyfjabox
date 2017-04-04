@@ -19,6 +19,7 @@ public class LoginConnection {
                     .build().toString();
             Gson gson = new Gson();
             String json = gson.toJson(loggedinUser);
+            Log.i(TAG, "JSON er" + json);
             String response = PostData.postData(url, json);
 
             Log.i(TAG, "Received response:" + response);
