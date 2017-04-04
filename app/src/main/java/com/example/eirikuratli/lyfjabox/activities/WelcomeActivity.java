@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -23,6 +24,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -36,6 +39,7 @@ import android.widget.Toast;
 
 
 import com.example.eirikuratli.lyfjabox.R;
+import com.example.eirikuratli.lyfjabox.models.LoginConnection;
 import com.example.eirikuratli.lyfjabox.models.User;
 import com.example.eirikuratli.lyfjabox.models.MySQLiteHelper;
 
@@ -50,6 +54,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 public class WelcomeActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 //Opening screen where users log in, the app cannot be used without creating a user account.
 
+    private static final String TAG = "WelcomeActivity";
     //UserService userService;
     private User myUser;
 
@@ -210,7 +215,7 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
             // perform the user login attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password, this);
-            mAuthTask.execute((Void) null);
+            mAuthTask.execute((User) null);
         }
     }
 
@@ -318,7 +323,7 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+    public class UserLoginTask extends AsyncTask<User, Void, String> {
 
         private final String mEmail;
         private final String mPassword;
@@ -331,10 +336,18 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
         }
 
         @Override
-        protected Boolean doInBackground(Void... params) {
+        protected String doInBackground(User... loggedinUsers) {
             // TODO: attempt authentication against a network service.
 
+            if(loggedinUsers.length>0) {
+                Log.i(TAG, loggedinUsers.length+" er lengdin á loggedinUsers " );
+                String message = new LoginConnection().sendLogin(loggedinUsers[0]);
+                return message;
+            }
+            return "Doesnt work, there is no user";
+        }
 
+/*
             MySQLiteHelper db=null;
             try{
                 db = new MySQLiteHelper(mContext);
@@ -357,6 +370,7 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
 
             // TODO: register the new account here.
             //return false;
+
         }
 
         @Override
@@ -415,14 +429,41 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }
-            */
-        }
 
+        }
+*/
+
+        @Override
+        protected void onPostExecute(String response){
+            Log.d(TAG, response);
+            if("OK".equals(response)){
+                SharedPreferences.Editor editor = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE).edit();
+                editor.putString("email", mEmailView.getText().toString());
+                editor.putString("password", mPasswordView.getText().toString());
+                editor.commit();
+                Toast toast = Toast.makeText(WelcomeActivity.this ,"Log in successful", Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                Intent intent = new Intent(WelcomeActivity.this, HomeActivity.class);
+                Log.d(TAG, "GilmoreGirlsÁHomeScreen: " + mEmailView.getText().toString());
+                intent.putExtra("email", mEmailView.getText().toString());
+                startActivity(intent);
+            }
+            else {
+                Toast toast = Toast.makeText(WelcomeActivity.this ,response, Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+                mEmailView.setError(response);
+                mPasswordView.setError(response);
+            }
+        }
+    }
+    /*
         @Override
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
         }
-    }
+    }*/
 }
 
