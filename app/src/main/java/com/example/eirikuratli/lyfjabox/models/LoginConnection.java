@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 
 public class LoginConnection {
     private static final String TAG = "LoginConnection";
-    public String sendLogin(User loggedinUser){
+    public String sendLogin(LoginUser loggedinUser){
         try{
 
             String url = Uri.parse("http://10.0.2.2:8080/m/login/")

@@ -41,7 +41,9 @@ import android.widget.Toast;
 import com.example.eirikuratli.lyfjabox.R;
 import com.example.eirikuratli.lyfjabox.models.LoginConnection;
 import com.example.eirikuratli.lyfjabox.models.User;
+import com.example.eirikuratli.lyfjabox.models.LoginUser;
 import com.example.eirikuratli.lyfjabox.models.MySQLiteHelper;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,20 +59,13 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
     private static final String TAG = "WelcomeActivity";
     //UserService userService;
     private User myUser;
+    SharedPreferences shared;
 
     /**
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    /*private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world", "eirikuratli@gmail.com:hahaha"
-    };
-    */
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -182,6 +177,10 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
+        LoginUser loginUser = new LoginUser();
+        loginUser.setEmail(mEmailView.getText().toString());
+        loginUser.setPassword(mPasswordView.getText().toString());
+
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
@@ -214,8 +213,9 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password, this);
-            mAuthTask.execute((User) null);
+            //mAuthTask = new UserLoginTask(email, password, this);
+            //mAuthTask.execute((LoginUser) null);
+            AsyncTask task = new UserLoginTask().execute(loginUser);
         }
     }
 
@@ -323,9 +323,9 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<User, Void, String> {
+    public class UserLoginTask extends AsyncTask<LoginUser, Void, String> {
 
-        private final String mEmail;
+        /*private final String mEmail;
         private final String mPassword;
         private final Context mContext;
 
@@ -334,13 +334,14 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
             mPassword = password;
             mContext = context;
         }
-
+*/
         @Override
-        protected String doInBackground(User... loggedinUsers) {
+        protected String doInBackground(LoginUser... loggedinUsers) {
             // TODO: attempt authentication against a network service.
 
             if(loggedinUsers.length>0) {
                 Log.i(TAG, loggedinUsers.length+" er lengdin á loggedinUsers " );
+                Log.i(TAG, loggedinUsers.toString());
                 String message = new LoginConnection().sendLogin(loggedinUsers[0]);
                 return message;
             }
@@ -436,11 +437,25 @@ public class WelcomeActivity extends AppCompatActivity implements LoaderCallback
         @Override
         protected void onPostExecute(String response){
             Log.d(TAG, response);
-            if("OK".equals(response)){
-                SharedPreferences.Editor editor = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE).edit();
-                editor.putString("email", mEmailView.getText().toString());
-                editor.putString("password", mPasswordView.getText().toString());
+            if(response.contains("id")){
+                Gson gson = new Gson();
+                User user = gson.fromJson(response, User.class);
+
+                shared =getSharedPreferences("UserInfo", MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = shared.edit();
+                editor.putString("firstname", user.getFirstName());
+                editor.putString("lastname", user.getLastName());
+                editor.putString("address", user.getAddress());
+                editor.putString("city", user.getCity());
+                editor.putString("email", user.getEmail());
+                editor.putString("password", user.getPassword());
+                editor.putInt("phoneNo", user.getPhoneNo());
+                editor.putInt("ssn", user.getSocial());
+                editor.putInt("zip", user.getZip());
+                editor.putString("username", user.getUsername());
                 editor.commit();
+
                 Toast toast = Toast.makeText(WelcomeActivity.this ,"Log in successful", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
