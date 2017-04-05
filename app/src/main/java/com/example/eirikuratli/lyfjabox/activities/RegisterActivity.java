@@ -93,46 +93,9 @@ public class RegisterActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
-        /*
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
 
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
-        }
-        */
-
-        /*
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            //mAuthTask = new UserLoginTask(email, password, this);
-            //mAuthTask.execute((LoginUser) null);
-            AsyncTask task = new WelcomeActivity.UserLoginTask().execute(loginUser);
-        }
-        */
         AsyncTask task = new RegisterActivity.UserRegistrationTask().execute(newUser);
     }
-
-
-        //mLoginFormView = findViewById(R.id.registration_form);
-        //mProgressView = findViewById(R.id.registration_progress);
 
     /**
      * Represents an asynchronous login/registration task used to authenticate
@@ -140,16 +103,6 @@ public class RegisterActivity extends AppCompatActivity {
      */
     public class UserRegistrationTask extends AsyncTask<User, Void, String> {
 
-        /*private final String mEmail;
-        private final String mPassword;
-        private final Context mContext;
-
-        UserLoginTask(String email, String password, Context context) {
-            mEmail = email;
-            mPassword = password;
-            mContext = context;
-        }
-*/
         @Override
         protected String doInBackground(User... Users) {
             // TODO: attempt authentication against a network service.
@@ -200,84 +153,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     }
-
-/*
-                mPassword.setError(null);
-
-                User newUser = createUser();
-                Log.i(TAG, newUser.getFirstName());
-
-                String firstName = mFirstName.getText().toString();
-                String lastName = mLastName.getText().toString();
-                String socialNr = mSocial.getText().toString();
-                String address = mAddress.getText().toString();
-                String zipCode = mZipSpinner.getSelectedItem().toString();
-                String userName = mUsername.getText().toString();
-
-                if ((TextUtils.isEmpty(mPassword.getText().toString())) || (TextUtils.isEmpty(mConfirmedPassword.getText().toString())))  {
-                    mPassword.setError("Password cannot be empty");
-                }
-
-                if (mPassword.getText().toString().equals(mConfirmedPassword.getText().toString())) {
-                    String password = mPassword.getText().toString();
-                } else {
-                    mPassword.setError("Passwords do not match");
-                }
-
-                if (TextUtils.isEmpty(firstName)) {
-                    mFirstName.setError("First name cannot be empty");
-                }
-
-                if (TextUtils.isEmpty(lastName)) {
-                    mLastName.setError("Last name cannot be empty");
-                }
-
-                if (TextUtils.isEmpty(socialNr)) {
-                    mSocial.setError("Social security number cannot be empty");
-                }
-
-                if (TextUtils.isEmpty(userName)) {
-                    mUsername.setError("Email is not valid");
-                }
-
-                String message = new RegisterConnection().sendRegistration(newUser);
-                Log.i(TAG, message);
-
-                if (message.contains("Account already created")) {
-                    Toast toast = Toast.makeText(RegisterActivity.this ,message, Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
-                }
-                if (message.equals("OK")) {
-                    shared =getSharedPreferences("UserInfo", MODE_PRIVATE);
-
-                    SharedPreferences.Editor editor = shared.edit();
-                    editor.putString("firstname", newUser.getFirstName());
-                    editor.putString("lastname", newUser.getLastName());
-                    editor.putString("address", newUser.getAddress());
-                    editor.putString("city", newUser.getCity());
-                    editor.putString("email", newUser.getEmail());
-                    editor.putString("password", newUser.getPassword());
-                    editor.putInt("phoneNo", newUser.getPhoneNo());
-                    editor.putInt("ssn", newUser.getSocial());
-                    editor.putInt("zip", newUser.getZip());
-                    editor.putString("username", newUser.getUsername());
-                    editor.commit();
-
-                    Log.i(TAG, "what????");
-
-                    Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                }
-
-                else {
-                    Toast toast = Toast.makeText(RegisterActivity.this ,"Problem connecting to database", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
-                }
-            }
-        });
-        */
 
     public User createUser() {
         User newUser = new User();
