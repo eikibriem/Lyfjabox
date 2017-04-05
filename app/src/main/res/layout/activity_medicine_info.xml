@@ -10,4 +10,26 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.eirikuratli.lyfjabox.activities.MedicineInfoActivity">
 
+    <LinearLayout
+        android:id="@+id/drug_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/drug_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="titill"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"/>
+
+        <TextView
+            android:id="@+id/drug_info_active"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            tools:text="Íbúfen er bólgueyðandi lyf með verkjastillandi og hitalækkandi verkun. Virka efnið íbúprófen dregur úr myndun prostaglandínefna í líkamanum, en þau valda meðal annars bólgumyndun. Íbúfen er notað við liðagigt, slitgigt, tíðaverkjum, tannpínu, höfuðverk, mígreni og sem verkjalyf eftir minni háttar aðgerðir. Lyfið er einnig notað til að lækka hita."/>
+
+    </LinearLayout>
+
 </RelativeLayout>

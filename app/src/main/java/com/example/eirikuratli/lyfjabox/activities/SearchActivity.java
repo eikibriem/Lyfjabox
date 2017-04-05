@@ -152,6 +152,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), MedicineInfoActivity.class);
+                    intent.putExtra("SelectedDrug", currentDrug);
                     view.getContext().startActivity(intent);
                 }
             });

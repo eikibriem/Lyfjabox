@@ -20,6 +20,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         String name = getIntent().getStringExtra("firstName");
+
+// Verður að vera komið í lag login á welcome activity, nafnið kemur þaðan
         TextView greetingText = (TextView) findViewById(R.id.greeting_user);
         String format = getString(R.string.greeting_home);
         greetingText.setText(String.format(format, name));
