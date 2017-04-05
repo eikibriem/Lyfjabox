@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Lyfjabox</string>
+    <string name="img_desc">Lyfjabox logo</string>
 
-    <!-- Strings related to login -->
+    <!-- Strings related to login and register -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -19,6 +20,7 @@
     <string name="updatingReport">Updating.....</string>
     <string name="overview_text">Here you can view and edit all of your registered medication</string>
 
+    <!-- Strings for WelcomeActivity -->
     <string name="greeting_home">Welcome %1$s! Today is: </string>
 
     <!-- Strings related to edit user -->
@@ -26,6 +28,16 @@
     <string name="update_button">Update</string>
     <string name="update_successful_toast">You successfully updated your user information!</string>
     <string name="edit_user_info">Edit your user information</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="ssn">SSN</string>
+    <string name="address">Address</string>
+    <string name="zip">Zip</string>
+    <string name="phonenr">Phone number</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="cancel">Cancel</string>
+
 
     <string-array name="zip_list">
         <item>101 Reykjavík</item>
