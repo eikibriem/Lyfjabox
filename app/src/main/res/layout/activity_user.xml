@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_logo2" />
+        <TextView
+            android:text="@string/user_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="24dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_user_info"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        <TableRow>
+            <TextView
+                android:text="First name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/first_name_label"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="First name"
+                android:ems="10"
+                android:id="@id/first_name_input"
+                android:layout_weight="1"
+                tools:context="com.example.eirikuratli.lyfjabox.models.User.getFirstname()"/>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Last name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/last_name_label"
+                android:layout_weight="0.14"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Last name"
+                android:ems="10"
+                android:id="@id/last_name_input"
+                android:layout_weight="0.14"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="SSN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/ssn_label"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@id/ssn_input"
+                android:layout_weight="1"
+                android:hint="Social security number"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/address_label"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:hint="Address"
+                android:ems="10"
+                android:id="@id/address_input"
+                android:layout_weight="1"/>
+        </TableRow>
+
+
+        <TableRow>
+            <TextView
+                android:text="Zip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/postal_label"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:id="@id/zip_input"
+                android:drawSelectorOnTop="true"
+                android:entries="@array/zip_list"
+                android:layout_weight="1"
+                />
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Phone nr."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/phone_label"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="7"
+                android:id="@id/phone_input"
+                android:layout_weight="1"
+                android:hint="Phone number"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/email_label"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@id/email_input"
+                android:layout_weight="1"
+                android:hint="Email"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/password_label"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@id/password_input"
+                android:layout_weight="1"
+                android:hint="Password"/>
+        </TableRow>
+
+        <TableRow android:paddingTop="20dp">
+
+            <Button
+                android:id="@+id/cancel_update_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancel" />
+
+            <Button
+                android:id="@+id/update_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.86"
+                android:text="@string/update_button" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</ScrollView>
+

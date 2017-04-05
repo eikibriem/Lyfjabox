@@ -21,8 +21,11 @@
 
     <string name="greeting_home">Welcome %1$s! Today is: </string>
 
-    <string name="user_info_greeting">%1$s</string>
-    <string name="update_button">Save and update my info</string>
+    <!-- Strings related to edit user -->
+    <string name="user_greeting">1$s</string>
+    <string name="update_button">Update</string>
+    <string name="update_successful_toast">You successfully updated your user information!</string>
+    <string name="edit_user_info">Edit your user information</string>
 
     <string-array name="zip_list">
         <item>101 Reykjavík</item>
@@ -155,5 +158,7 @@
     </string-array>
     <string name="title_activity_map">Map</string>
     <string name="menu_title_search">Search</string>
+
+
 
 </resources>
