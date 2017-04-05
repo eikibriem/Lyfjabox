@@ -73,6 +73,9 @@ public class HomeActivity extends AppCompatActivity {
         mLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = shared.edit();
+                editor.clear();
+                editor.commit();
                 Intent intent = new Intent(HomeActivity.this, WelcomeActivity.class);
                 startActivity(intent);
                 finish();
