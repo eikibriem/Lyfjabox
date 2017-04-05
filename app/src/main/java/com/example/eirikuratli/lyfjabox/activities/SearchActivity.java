@@ -42,7 +42,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_search);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         sAdapter = new SearchAdapter(allDrugs);
