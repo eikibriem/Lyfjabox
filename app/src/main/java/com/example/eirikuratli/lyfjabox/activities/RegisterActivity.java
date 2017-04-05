@@ -121,6 +121,8 @@ public class RegisterActivity extends AppCompatActivity {
                     editor.putString("username", newUser.getUsername());
                     editor.commit();
 
+                    Log.i(TAG, "what????");
+
                     Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                     startActivity(intent);
                 }
