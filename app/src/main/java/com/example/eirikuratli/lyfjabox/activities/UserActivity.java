@@ -50,7 +50,7 @@ public class UserActivity extends AppCompatActivity {
         mEmail = (EditText) findViewById(R.id.email_edit);
         mUsername = (EditText) findViewById(R.id.email_edit);
         mPassword = (EditText) findViewById(R.id.password_edit);
-        mConfirmedPassword = (EditText) findViewById(R.id.password_repeat_edit);
+        //mConfirmedPassword = (EditText) findViewById(R.id.password_repeat_edit);
         mZipSpinner = (Spinner) findViewById(R.id.zip_edit);
 
         Button mCancelUpdate = (Button) findViewById(R.id.cancel_update_button);

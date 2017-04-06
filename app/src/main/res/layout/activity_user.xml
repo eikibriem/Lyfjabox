@@ -41,7 +41,7 @@
                 android:inputType="textPersonName"
                 android:hint="@string/first_name"
                 android:ems="10"
-                android:id="@id/first_name_input"
+                android:id="@+id/first_name_edit"
                 android:layout_weight="1"
                 tools:context="com.example.eirikuratli.lyfjabox.models.User.getFirstname()"/>
 
@@ -61,7 +61,7 @@
                 android:inputType="textPersonName"
                 android:hint="@string/last_name"
                 android:ems="10"
-                android:id="@id/last_name_input"
+                android:id="@+id/last_name_edit"
                 android:layout_weight="0.14"/>
         </TableRow>
 
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@id/ssn_input"
+                android:id="@+id/ssn_edit"
                 android:layout_weight="1"
                 android:hint="@string/ssn"/>
         </TableRow>
@@ -97,7 +97,7 @@
                 android:inputType="textPostalAddress"
                 android:hint="@string/address"
                 android:ems="10"
-                android:id="@id/address_input"
+                android:id="@+id/address_edit"
                 android:layout_weight="1"/>
         </TableRow>
 
@@ -114,7 +114,7 @@
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:id="@id/zip_input"
+                android:id="@+id/zip_edit"
                 android:drawSelectorOnTop="true"
                 android:entries="@array/zip_list"
                 android:layout_weight="1"
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"
                 android:ems="7"
-                android:id="@id/phone_input"
+                android:id="@+id/phone_edit"
                 android:layout_weight="1"
                 android:hint="@string/phonenr"/>
         </TableRow>
@@ -153,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:ems="10"
-                android:id="@id/email_input"
+                android:id="@+id/email_edit"
                 android:layout_weight="1"
                 android:hint="@string/email"/>
         </TableRow>
@@ -171,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@id/password_input"
+                android:id="@+id/password_edit"
                 android:layout_weight="1"
                 android:hint="@string/password"/>
         </TableRow>
