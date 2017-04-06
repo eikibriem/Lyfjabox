@@ -14,13 +14,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fill in the form to sign up"
+            android:text="@string/fillIn"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
 
         <TableRow>
             <TextView
-                android:text="First name"
+                android:text="@string/first_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/first_name_label"
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="First name"
+                android:hint="@string/first_name"
                 android:ems="10"
                 android:id="@+id/first_name_input"
                 android:layout_weight="1"/>
@@ -39,7 +39,7 @@
 
         <TableRow>
             <TextView
-                android:text="Last name"
+                android:text="@string/last_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/last_name_label"
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="Last name"
+                android:hint="@string/last_name"
                 android:ems="10"
                 android:id="@+id/last_name_input"
                 android:layout_weight="0.14"/>
@@ -57,7 +57,7 @@
 
         <TableRow>
             <TextView
-                android:text="SSN"
+                android:text="@string/ssn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ssn_label"
@@ -70,12 +70,12 @@
                 android:ems="10"
                 android:id="@+id/ssn_input"
                 android:layout_weight="1"
-                android:hint="Social security number"/>
+                android:hint="@string/ssn"/>
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Address"
+                android:text="@string/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/address_label"
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
-                android:hint="Address"
+                android:hint="@string/address"
                 android:ems="10"
                 android:id="@+id/address_input"
                 android:layout_weight="1"/>
@@ -94,7 +94,7 @@
 
         <TableRow>
             <TextView
-                android:text="Zip"
+                android:text="@string/zip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/postal_label"
@@ -114,7 +114,7 @@
 
         <TableRow>
             <TextView
-                android:text="Phone nr."
+                android:text="@string/phonenr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/phone_label"
@@ -127,12 +127,12 @@
                 android:ems="7"
                 android:id="@+id/phone_input"
                 android:layout_weight="1"
-                android:hint="Phone number"/>
+                android:hint="@string/phonenr"/>
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Email"
+                android:text="@string/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/email_label"
@@ -145,12 +145,12 @@
                 android:ems="10"
                 android:id="@+id/email_input"
                 android:layout_weight="1"
-                android:hint="Email"/>
+                android:hint="@string/email"/>
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Password"
+                android:text="@string/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/password_label"
@@ -163,12 +163,12 @@
                 android:ems="10"
                 android:id="@+id/password_input"
                 android:layout_weight="1"
-                android:hint="Password"/>
+                android:hint="@string/password"/>
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="Repeat password"
+                android:text="@string/repeat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/password_repeat_label"
@@ -182,7 +182,7 @@
                 android:ems="10"
                 android:id="@+id/password_repeat_input"
                 android:layout_weight="1"
-                android:hint="Repeat password"/>
+                android:hint="@string/repeat"/>
         </TableRow>
 
         <TableRow android:paddingTop="20dp">
@@ -192,14 +192,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancel" />
+                android:text="@string/cancel" />
 
             <Button
                 android:id="@+id/sign_up_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Sign up" />
+                android:text="@string/signup" />
 
         </TableRow>
 
