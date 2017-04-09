@@ -48,7 +48,6 @@ public class UserActivity extends AppCompatActivity {
 
         TextView greeting = (TextView) findViewById(R.id.user_greeting);
         String format = getString(R.string.user_greeting);
-
         greeting.setText(String.format(format, name+ " " + lastname));
 
 

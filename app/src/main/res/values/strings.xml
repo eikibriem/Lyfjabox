@@ -2,7 +2,7 @@
     <string name="app_name">Lyfjabox</string>
     <string name="img_desc">Lyfjabox logo</string>
 
-    <!-- Strings related to login and register -->
+    <!-- Strings for RegisterActivity and WelcomeActivity -->
     <string name="fillIn">Fill in the form to sign up</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
