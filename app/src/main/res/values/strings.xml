@@ -49,6 +49,7 @@
     <string name="signup">Sign up</string>
     <string name="username">Username</string>
 
+    <!-- Strings for MedicineInfoActivity -->
     <string-array name="reminder_on_off">
         <item>Yes</item>
         <item>No</item>

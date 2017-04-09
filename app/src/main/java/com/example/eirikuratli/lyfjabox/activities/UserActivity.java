@@ -59,8 +59,6 @@ public class UserActivity extends AppCompatActivity {
         //mSocial.setText(shared.getInt("ssn", Integer.parseInt("1234")), TextView.BufferType.EDITABLE);
         mAddress = (EditText) findViewById(R.id.address_edit);
         mAddress.setText(shared.getString("address", "Address"), TextView.BufferType.EDITABLE);
-        //mEmail = (EditText) findViewById(R.id.email_edit);
-        //mEmail.setText(shared.getString("email", "Email"), TextView.BufferType.EDITABLE);
         mUsername = (EditText) findViewById(R.id.email_edit);
         mUsername.setText(shared.getString("username", null), TextView.BufferType.EDITABLE);
         mPassword = (EditText) findViewById(R.id.password_edit);
