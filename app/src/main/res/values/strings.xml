@@ -3,6 +3,7 @@
     <string name="img_desc">Lyfjabox logo</string>
 
     <!-- Strings related to login and register -->
+    <string name="fillIn">Fill in the form to sign up</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -21,10 +22,17 @@
     <string name="overview_text">Here you can view and edit all of your registered medication</string>
 
     <!-- Strings for WelcomeActivity -->
-    <string name="greeting_home">Welcome %1$s! Today is: </string>
+    <string name="greeting_home">Welcome %1$s! </string>
 
-    <!-- Strings related to edit user -->
-    <string name="user_greeting">1$s</string>
+    <!-- Strings for HomeActivity -->
+    <string name="find_med">"Find medicine"</string>
+    <string name="find_pharmacies">Find pharmacies</string>
+    <string name="user_info">User information</string>
+    <string name="reg_med">Registered medicine</string>
+    <string name="sign_out">Sign me out</string>
+
+    <!-- Strings for UserActivity -->
+    <string name="user_greeting">%1$s!</string>
     <string name="update_button">Update</string>
     <string name="update_successful_toast">You successfully updated your user information!</string>
     <string name="edit_user_info">Edit your user information</string>
@@ -36,7 +44,10 @@
     <string name="phonenr">Phone number</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="repeat">Repeat password</string>
     <string name="cancel">Cancel</string>
+    <string name="signup">Sign up</string>
+    <string name="username">Username</string>
 
     <string-array name="reminder_on_off">
         <item>Yes</item>

@@ -14,27 +14,26 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.Spinner;
+import android.content.Context;
 
 import com.example.eirikuratli.lyfjabox.R;
-import com.example.eirikuratli.lyfjabox.models.LoginConnection;
-import com.example.eirikuratli.lyfjabox.models.LoginUser;
 import com.example.eirikuratli.lyfjabox.models.RegisterConnection;
 import com.example.eirikuratli.lyfjabox.models.User;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class UserActivity extends AppCompatActivity {
     private static final String TAG = "UserActivity";
         private EditText mFirstName, mLastName, mSocial, mAddress, mUsername, mEmail, mPassword, mConfirmedPassword, mPhoneNo;
         private Spinner mZipSpinner;
-        private Button mUpdate;
+
+        SharedPreferences shared;
+
+
+    private Button mUpdate;
         private Button mCancelUpdate;
         private User editedUser;
 
         private UserActivity.UserEditedTask mAuthTask = null;
-
-        SharedPreferences shared;
 
     // User information class, user can edit his personal information
 
@@ -43,15 +42,36 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+        shared = getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
+        String name = shared.getString("firstname", "user");
+        String lastname = shared.getString("lastname", "user");
+
+        TextView greeting = (TextView) findViewById(R.id.user_greeting);
+        String format = getString(R.string.user_greeting);
+
+        greeting.setText(String.format(format, name+ " " + lastname));
+
+
         mFirstName = (EditText) findViewById(R.id.first_name_edit);
+        mFirstName.setText(shared.getString("firstname", "Anonymous"), TextView.BufferType.EDITABLE);
         mLastName = (EditText) findViewById(R.id.last_name_edit);
+        mLastName.setText(shared.getString("lastname", "Last name"), TextView.BufferType.EDITABLE);
         mSocial = (EditText) findViewById(R.id.ssn_edit);
+        //mSocial.setText(shared.getInt("ssn", Integer.parseInt("1234")), TextView.BufferType.EDITABLE);
         mAddress = (EditText) findViewById(R.id.address_edit);
-        mEmail = (EditText) findViewById(R.id.email_edit);
+        mAddress.setText(shared.getString("address", "Address"), TextView.BufferType.EDITABLE);
+        //mEmail = (EditText) findViewById(R.id.email_edit);
+        //mEmail.setText(shared.getString("email", "Email"), TextView.BufferType.EDITABLE);
         mUsername = (EditText) findViewById(R.id.email_edit);
+        mUsername.setText(shared.getString("username", null), TextView.BufferType.EDITABLE);
         mPassword = (EditText) findViewById(R.id.password_edit);
-        //mConfirmedPassword = (EditText) findViewById(R.id.password_repeat_edit);
+        mPassword.setText(shared.getString("password", null), TextView.BufferType.EDITABLE);
+        mConfirmedPassword = (EditText) findViewById(R.id.password_repeat_edit);
+        mConfirmedPassword.setText(shared.getString("password", null), TextView.BufferType.EDITABLE);
         mZipSpinner = (Spinner) findViewById(R.id.zip_edit);
+        mPhoneNo = (EditText) findViewById(R.id.phone_edit);
+        //mPhoneNo.setText(shared.getInt("phoneNo",5812345 ), TextView.BufferType.EDITABLE);
+
 
         Button mCancelUpdate = (Button) findViewById(R.id.cancel_update_button);
         mCancelUpdate.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +150,7 @@ public class UserActivity extends AppCompatActivity {
                     editor.putInt("ssn", editedUser.getSocial());
                     editor.putInt("zip", editedUser.getZip());
                     editor.putString("username", editedUser.getUsername());
-                    editor.commit();
+                    editor.apply();
 
                     Toast toast = Toast.makeText(UserActivity.this, "@string/update_successful_toast", Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 0);
@@ -168,3 +188,5 @@ public class UserActivity extends AppCompatActivity {
     }
 
 }
+
+

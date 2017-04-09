@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -10,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-        <ImageView
+        <ImageView android:contentDescription="@string/img_desc"
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,14 +49,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Find medicine" />
+                    android:text="@string/find_med" />
 
                 <Button
                     android:id="@+id/search_pharmacy_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Find pharmacies" />
+                    android:text="@string/find_pharmacies" />
             </TableRow>
 
             <TableRow>
@@ -67,14 +66,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="User information" />
+                    android:text="@string/user_info" />
 
                 <Button
                     android:id="@+id/registered_meds_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Registered medicine" />
+                    android:text="@string/reg_med" />
             </TableRow>
         </TableLayout>
 
@@ -83,5 +82,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Sign me out" />
+            android:text="@string/sign_out" />
 </LinearLayout>

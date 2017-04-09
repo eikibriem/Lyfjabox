@@ -15,17 +15,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_logo2" />
-        <TextView
-            android:text="@string/user_greeting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="24dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/edit_user_info"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        <TableRow>
+            <TextView
+                android:id="@+id/user_greeting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/user_greeting"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/edit_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_user_info"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        </TableRow>
+
 
         <TableRow>
             <TextView
@@ -142,7 +152,7 @@
 
         <TableRow>
             <TextView
-                android:text="@string/email"
+                android:text="@string/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@id/email_label"
@@ -176,20 +186,38 @@
                 android:hint="@string/password"/>
         </TableRow>
 
+        <TableRow>
+            <TextView
+                android:text="@string/repeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@id/password_label"
+                android:layout_weight="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/password_repeat_edit"
+                android:layout_weight="1"
+                android:hint="@string/repeat"/>
+        </TableRow>
+
         <TableRow android:paddingTop="20dp">
 
-            <Button style="?android:buttonBarStyle"
+            <Button
                 android:id="@+id/cancel_update_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/cancel" />
 
-            <Button style="?android:buttonBarStyle"
+            <Button
                 android:id="@+id/update_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.86"
+                android:layout_weight="1"
                 android:text="@string/update_button" />
 
         </TableRow>

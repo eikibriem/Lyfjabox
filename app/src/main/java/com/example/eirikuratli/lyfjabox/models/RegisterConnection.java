@@ -37,4 +37,23 @@ public class RegisterConnection {
         return "Doesn't work";
     }
 
+    public String sendEdit(User editedUser) {
+        try {
+            String url = Uri.parse("http://10.0.2.2:8080/m/edit/")
+                    .buildUpon()
+                    .build().toString();
+            Gson gson = new Gson();
+            String json = gson.toJson(editedUser);
+            Log.i(TAG, "EditedJSON er" + json);
+            String response = PostData.postData(url, json);
+
+            Log.i(TAG, "Received response:" + response);
+            return response;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return "Doesn't work";
+    }
 }
